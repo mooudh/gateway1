@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/bank/request','gatewayController@index');
+Route::post('/bank/response','gatewayController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home','gatewayController@gate');
